@@ -53,7 +53,7 @@ int main()
     	}
         case 2:
         {
-        	O1.RInput();
+            O1.RInput();
             O1.ComputeRA();
         }
 
