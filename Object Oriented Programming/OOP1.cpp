@@ -3,7 +3,7 @@ using namespace std;
 class Data
 {
 private:
-	int DAY_OF_MONTH;
+	int DAY_OF_MONTH;           //Data members
 	int HIGHTEMP;
 	int LOWTEMP;
 	int AMOUNT_RAIN;
@@ -12,15 +12,15 @@ public:
 	Data(){                     //This is a default constructor called by itself when object is created.
           DAY_OF_MONTH=0;
           HIGHTEMP=0;
-	 	  LOWTEMP=0;
-	 	  AMOUNT_RAIN=0;
-	 	  AMOUNT_SNOW=0;    
+	  LOWTEMP=0;
+	  AMOUNT_RAIN=0;
+	  AMOUNT_SNOW=0;    
 	}
 
-	void Input(){
-			cout<<"Enter day:";
-			cin>>DAY_OF_MONTH;
-			cout<<"Enter high temperature(°C):";
+	void Input(){                //Input Data
+		cout<<"Enter day:";
+		cin>>DAY_OF_MONTH;
+		cout<<"Enter high temperature(°C):";
 	        cin>>HIGHTEMP;
 	        cout<<"Enter low temperature(°C):";
 	        cin>>LOWTEMP;
@@ -31,30 +31,27 @@ public:
 	        Step();
 	}
 
-	void Display(){
+	void Display(){             //Display Data
 		
-			cout<<"Day:"<<DAY_OF_MONTH<<endl;
-			cout<<"High temp(°C):"<<HIGHTEMP<<endl;
-			cout<<"Low temp(°C):"<<LOWTEMP<<endl;
-			cout<<"Amount of rain(mm):"<<AMOUNT_RAIN<<endl;
-			cout<<"Amount of snow(cm):"<<AMOUNT_SNOW<<endl;
-			Step();
+		cout<<"Day:"<<DAY_OF_MONTH<<endl;
+		cout<<"High temp(°C):"<<HIGHTEMP<<endl;
+		cout<<"Low temp(°C):"<<LOWTEMP<<endl;
+		cout<<"Amount of rain(mm):"<<AMOUNT_RAIN<<endl;
+		cout<<"Amount of snow(cm):"<<AMOUNT_SNOW<<endl;
+		Step();
 	}
 
-	void ModifyData(Data D[100],int n){
-        int DAY;
-        cout<<"Enter day for which you want to modify the data:";
-        cin>>DAY;
-        for(int i=1;i<=n;i++){
-            D[i].Display();
-        }
-        for(int i=0;i<n;i++){
+	void ModifyData(Data D[100],int n){         //Changes data of particular day.
+                int DAY;
+                cout<<"Enter day for which you want to modify the data:";
+                cin>>DAY;
+                for(int i=0;i<n;i++){
         	if(DAY==D[i].DAY_OF_MONTH){
         		D[i].Input();
         		cout<<"Modified Data is:"<<endl;
         		D[i].Display();
         	}
-        }
+          }
 	}
 
 	inline void Step(){
@@ -67,10 +64,10 @@ public:
 		cout<<"REPORT:"<<endl;
 		cout<<"Number of days:"<<n<<endl;
 		for(int i=1;i<=n;i++){
-               sumH+=D[i].HIGHTEMP;
-               sumL+=D[i].LOWTEMP;
-               sumR+=D[i].AMOUNT_RAIN;
-               sumS+=D[i].AMOUNT_SNOW;
+		       sumH+=D[i].HIGHTEMP;
+		       sumL+=D[i].LOWTEMP;
+		       sumR+=D[i].AMOUNT_RAIN;
+		       sumS+=D[i].AMOUNT_SNOW;
 		}
 		avgH = sumH/n;
 		cout<<"Average high temperature:"<<avgH<<endl;
@@ -79,7 +76,7 @@ public:
 		avgR = sumR/n;
 		cout<<"Average rainfall(mm):"<<avgR<<endl;
 		avgS = sumS/n;
-        cout<<"Average snowfall(cm):"<<avgS<<endl;
+                cout<<"Average snowfall(cm):"<<avgS<<endl;
 	}
 };
 
@@ -108,10 +105,10 @@ int main(){
         	case 2:
         	{
         		cout<<"Entered Data is:"<<endl;
-	            for(int i=1;i<=n;i++){
-                      ptr[i]->Display();
-                }
-                break;
+	                for(int i=1;i<=n;i++){
+                        ptr[i]->Display();
+                        }
+                        break;
         	}
         	case 3:
         	{
@@ -131,5 +128,6 @@ int main(){
         }
         cout<<"Want to try again?(Y/y):";
         cin>>ch;
-	}while(ch=='Y' || ch=='y');    
+	}while(ch=='Y' || ch=='y');  
+	return 0;
 }
